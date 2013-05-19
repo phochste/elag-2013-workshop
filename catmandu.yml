@@ -1,0 +1,20 @@
+---
+importer:
+ UGent:
+  package: Z3950
+  options:
+    host: aleph.ugent.be
+    port: 9991
+    databaseName: RUG01
+    queryType: PQF
+    query: "Europeana-topo"
+
+store:
+ MongoDB:
+  package: MongoDB
+  options:
+    database_name: europeana
+ ElasticSearch:
+  package: ElasticSearch
+  options:
+    index_name: europeana

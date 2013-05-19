@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title>Catmandu Data Fix Lab</title>
+	<style type="text/css">
+	body {
+		font-family: helvetica;
+	}
+	th {
+		vertical-align: top;
+	}
+	</style>
+</head>
+<body>
+	<img src="images/librecat.png" style="float: left;" width="128" height="128">
+[% content %]
+</body>
+</html>

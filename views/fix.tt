@@ -1,0 +1,84 @@
+  
+<h1>Catmandu Data Fix Lab</h1>
+<div style="float: right; width: 400px;">
+<h3>Fixes</h3>
+Basics:
+<ul>
+ <li>add_field('foo','2');</li>
+ <li>append('name', 'y');</li>
+ <li>capitalize('foo');</li>
+ <li>collapse();</li>
+ <li>copy_field('foo.bar','bar.foo');</li>
+ <li>downcase('name');</li>
+ <li>expand();</li>
+ <li>join_field('foo','/');</li>
+ <li>move_field('foo.bar','bar.foo');</li>
+ <li>prepend('name', 'mr. ');</li>
+ <li>remove_field('foo.bar');</li>
+ <li>replace_all('year','\^','0');</li>
+ <li>retain_field('foo.bar');</li>
+ <li>set_field('foo','bar 123');</li>
+ <li>split_field('foo',':');</li>
+ <li>substring('initials',0,1);</li>
+ <li>trim('foo');</li>
+ <li>upcase('foo');</li>
+ <li>if_exists('oogly');<br>
+   upcase('foo');<br>
+   end()
+ </li>
+</ul>
+Conditionals:
+<ul>
+ <li>
+   unless_exists('oogly');<br>
+   upcase('foo');<br>
+   end()
+ </li>
+ <li>
+   if_any_match('oogly', 'doogly');<br>
+   upcase('foo');<br>
+   end()
+ </li>
+ <li>
+  if_all_match('oogly.*', 'doogly');<br>
+  upcase('foo');<br>
+  end()
+ </li>
+</ul>
+MARC:
+<ul>
+  <li>marc_map('245','my.title');</li>
+  <li>marc_map('245abc','my.title');</li>
+  <li>marc_map('100','my.authors.$append');</li>
+  <li>marc_map('600x','my.subjects.$append.genre.text');</li>
+  <li>marc_map('008_/35-35','my.language');</li>
+  <li>marc_map('600','my.stringy', -join => '; ');</li>
+  <li>marc_map('024','my.has024', -value => 'found');</li>
+</ul>
+</div>
+<form action="fix" method="POST">
+<table>
+ <tr>
+ <th>Input</th>
+ <td>
+ <textarea name="input" cols="100" rows="20">[% input %]</textarea>
+ </td>
+ </tr>
+ <tr>
+  <th>Fix</th>
+  <td>
+  <textarea name="fix" cols="100" rows="10">[% fix %]</textarea>
+  </td>
+ </tr>
+ <tr>
+  <td colspan="2" align="center"><input type="submit"></td>
+ </tr>
+ <tr>
+ <th>Output</th>
+ <td>
+ <textarea readonly="readonly" name="output" cols="100" rows="20">[% output %]</textarea>
+ </td>
+ </tr>
+</table>
+
+</form>
