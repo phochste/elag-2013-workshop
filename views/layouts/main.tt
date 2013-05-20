@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Catmandu Data Fix Lab</title>
+	<title>ELAG ETL Lab</title>
 	<style type="text/css">
 	body {
 		font-family: helvetica;
@@ -8,10 +8,25 @@
 	th {
 		vertical-align: top;
 	}
+	.tag {
+		color: #0000ff;
+	}
+	.marc {
+		font-family: courier;
+	}
+	.sub {
+		color: #ff0000;
+	}
 	</style>
 </head>
 <body>
-	<img src="images/librecat.png" style="float: left;" width="128" height="128">
+ <div id="header" style="height: 150;">
+	<a href="http://librecat.org"><img src="images/librecat.png" width="128" height="128" align="left" style="margin-right: 10px;" boder="0"></a>
+    <h1>ELAG ETL Lab</h1>
+    <p>
+    	<b>Menu:</b> <a href="/">Standard Fix</a> | <a href="/marc?skip=0">Marc Fix</a>
+    </p>
+ </div>
 [% content %]
 </body>
 </html>

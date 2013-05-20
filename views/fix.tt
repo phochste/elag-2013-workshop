@@ -1,5 +1,3 @@
-  
-<h1>Catmandu Data Fix Lab</h1>
 <div style="float: right; width: 400px;">
 <h3>Fixes</h3>
 Basics:
@@ -57,7 +55,13 @@ MARC:
 </ul>
 </div>
 <form action="fix" method="POST">
-<table>
+<table style="width: 800px;">
+ <tr>
+  <td></td>
+  <td>
+   <div style="color: red"><pre>[% error %]</pre></div>
+  </td>
+ </tr>
  <tr>
  <th>Input</th>
  <td>
@@ -71,7 +75,8 @@ MARC:
   </td>
  </tr>
  <tr>
-  <td colspan="2" align="center"><input type="submit"></td>
+  <td>&nbsp;</td>
+  <td><input type="submit"></td>
  </tr>
  <tr>
  <th>Output</th>

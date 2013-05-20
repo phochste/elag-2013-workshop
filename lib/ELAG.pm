@@ -1,4 +1,5 @@
 package ELAG;
+use Catmandu -all;
 use Catmandu::Importer::YAML;
 use Catmandu::Fix;
 use File::Temp qw(tempfile);
@@ -20,10 +21,52 @@ post '/fix' => sub {
  		fix => $fix 
  	};
 
-	$result->{output} =  to_yaml fix_one($in,$fix);
+ 	eval {
+		$result->{output} =  to_yaml fix_one($in,$fix);
+	};
+
+	if ($@) {
+		$result->{error} = $@;
+		$result->{error} =~ s/Trace begun.*//sm;
+	}
 	
 	template 'fix' , $result;
 };
+
+get '/marc' => sub {
+	my $skip   = params->{skip} // 0;
+	my $record = store->search(start => $skip)->first;
+	$record->{id} = $record->{_id};
+	template 'marc', { record => $record };
+};
+
+post '/marc' => sub {
+	my $skip   = params->{skip} // 0;
+	my $record = store->search(start => $skip)->first;
+	my $fix    = params->{fix} // '';
+	
+	$record->{id} = $record->{_id};
+
+	my $result = {
+		record => $record ,
+		fix    => $fix
+	};
+
+	eval {
+		$result->{output} =  to_yaml fix_record($record,$fix);
+	};
+
+	if ($@) {
+		$result->{error} = $@;
+		$result->{error} =~ s/Trace begun.*//sm;
+	}
+
+	template 'marc' , $result;
+};
+
+sub store {
+    Catmandu->store('MongoDB')->bag;
+}
 
 sub fixer {
 	my $fix = shift // '';
@@ -48,6 +91,13 @@ sub fix_one {
 	close($fh);
 
 	$ret;
+}
+
+sub fix_record {
+	my $record = shift;
+	my $fixer  = fixer shift;
+
+	$fixer->fix($record);
 }
 
 true;

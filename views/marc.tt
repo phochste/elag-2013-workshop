@@ -1,0 +1,65 @@
+[% IF params.skip > 0 %]
+ <a href="?skip=[% params.skip - 1 %]">Previous Record</a>
+[% END %]
+[% IF params.skip < 1000 %]
+ <a href="?skip=[% params.skip + 1 %]">Next Record</a>
+[% END %]
+<form action="marc" method="POST">
+<input type="hidden" name="skip" value="[% params.skip %]">
+<table>
+ <tr>
+  <td></td>
+  <td>
+   <div style="color: red"><pre>[% error %]</pre></div>
+  </td>
+ </tr>
+ <tr>
+ <th>Input</th>
+ <td>
+  <div class="marc">
+[% FOREACH line IN record.record %]
+ <span class="sys">[%- record. id %]
+ <span class="tag">[%- line.0 %]</span>
+ [% IF line.1 == " " %]
+  &nbsp;
+ [% ELSE %]
+ <span class="ind">[%- line.1 %]</span>
+ [% END %]
+ [% IF line.2 == " " %]
+ &nbsp;
+ [% ELSE %]
+ <span class="ind">[%- line.2 %]</span>
+ [% END %]
+ [% SET i = 3 %]
+ [% WHILE i < line.size %]
+    [% SET j = i + 1 %]
+    [% IF line.$i == '_' %]
+ 	<span class="subv">[% line.$j %]</span>
+    [% ELSE %]
+ 	<span class="sub">$$[% line.$i %]</span><span class="subv">[% line.$j %]</span>
+ 	[% END %]
+    [% SET i = i + 2 %]
+ [% END %]
+ <br>
+[% END %]
+  </div>
+ <td>
+</tr>
+ <tr>
+  <th>Fix</th>
+  <td>
+  <textarea name="fix" cols="100" rows="10">[% fix %]</textarea>
+  </td>
+ </tr>
+ <tr>
+  <td>&nbsp;</td>
+  <td><input type="submit"></td>
+ </tr>
+ <tr>
+ <th>Output</th>
+ <td>
+ <textarea readonly="readonly" name="output" cols="100" rows="20">[% output %]</textarea>
+ </td>
+ </tr>
+</table>
+</form>
