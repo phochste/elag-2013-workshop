@@ -14,7 +14,7 @@
   </td>
  </tr>
  <tr>
- <th>Input</th>
+ <th>Input<br><i>MARC</i></th>
  <td>
   <div class="marc">
 [% FOREACH line IN record.record %]
@@ -56,7 +56,7 @@
   <td><input type="submit"></td>
  </tr>
  <tr>
- <th>Output</th>
+ <th>Output<br><i>YAML</i></th>
  <td>
  <textarea readonly="readonly" name="output" cols="100" rows="20">[% output %]</textarea>
  </td>

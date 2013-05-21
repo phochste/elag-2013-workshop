@@ -1,10 +1,11 @@
 package ELAG;
-use Catmandu -all;
+use Catmandu qw(:all :load);
 use Catmandu::Importer::YAML;
 use Catmandu::Fix;
 use File::Temp qw(tempfile);
 use Dancer ':syntax';
 use HTML::FillInForm;
+
 
 our $VERSION = '0.1';
 

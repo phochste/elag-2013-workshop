@@ -63,7 +63,7 @@ MARC:
   </td>
  </tr>
  <tr>
- <th>Input</th>
+ <th>Input<br><i>YAML</i></th>
  <td>
  <textarea name="input" cols="100" rows="20">[% input %]</textarea>
  </td>
@@ -79,7 +79,7 @@ MARC:
   <td><input type="submit"></td>
  </tr>
  <tr>
- <th>Output</th>
+ <th>Output<br><i>YAML</i></th>
  <td>
  <textarea readonly="readonly" name="output" cols="100" rows="20">[% output %]</textarea>
  </td>

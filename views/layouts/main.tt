@@ -21,11 +21,14 @@
 </head>
 <body>
  <div id="header" style="height: 150;">
-	<a href="http://librecat.org"><img src="images/librecat.png" width="128" height="128" align="left" style="margin-right: 10px;" boder="0"></a>
+	<a href="/"><img title="LibreCat" src="images/librecat.png" width="128" height="128" align="left" style="margin-right: 10px;" boder="0"></a>
     <h1>ELAG ETL Lab</h1>
     <p>
-    	<b>Menu:</b> <a href="/">Standard Fix</a> | <a href="/marc?skip=0">Marc Fix</a>
-    </p>
+    	<b>Menu:</b> 
+    		<a href="/">Standard Fix</a> | 
+    		<a href="/marc?skip=0">Marc Fix</a> | 
+		<a href="/catmandu.ova">Catmandu VirtualBox</a> <small>(~1.5 GB : MD5:61f8586531df6b68c91e33fb4c5fbb2e)</small>
+    </p> 
  </div>
 [% content %]
 </body>
